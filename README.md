@@ -1,5 +1,4 @@
-# cowsay-hyperledger
-Hyperledger Foundation: hands on
+# Hyperledger Foundation: hands on
 
 ```bash
 FIAP - Hyperledger Foundation
@@ -87,12 +86,16 @@ e71060f2ae89        hyperledger/fabric-peer:latest    "peer node start"   46 sec
 docker exec -it cli bash
 
 # verificando status do peer 	
-root@c3bd1974e487:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer node status
+# root@c3bd1974e487:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+peer node status
+
 2019-09-26 23:30:45.375 UTC [main] InitCmd -> WARN 001 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
 status:STARTED 
 
 # verificando se existe algum chaincode instanciado
-root@c3bd1974e487:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
+# root@c3bd1974e487:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+peer chaincode list --installed
+
 2019-09-26 23:32:59.641 UTC [main] InitCmd -> WARN 001 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
 2019-09-26 23:32:59.644 UTC [main] SetOrdererEnv -> WARN 002 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
 Get installed chaincodes on peer:
@@ -114,7 +117,9 @@ Get installed chaincodes on peer:
 **NOTA:** Estavamos animados para executar mais um novo comando, porém, deu essa mensagem: 
 
 ```bash
-root@c3bd1974e487:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -C mychannel -n mycc -c '{"Args":["query","a"]}'
+#root@c3bd1974e487:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+peer chaincode query -C mychannel -n mycc -c '{"Args":["query","a"]}'
+
 2019-09-26 23:42:41.755 UTC [main] InitCmd -> WARN 001 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
 2019-09-26 23:42:41.758 UTC [main] SetOrdererEnv -> WARN 002 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
 Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org1MSP] - proposal response: <nil>
@@ -133,6 +138,7 @@ Error: error endorsing query: rpc error: code = Unknown desc = access denied: ch
                 ||     ||
 
 ```
+Em um nova aba do terminal execute:
 
 ```bash
 # logs no orderer 
