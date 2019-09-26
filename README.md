@@ -1,4 +1,6 @@
-# Hyperledger Foundation: hands on
+# cowsay-hyperledger
+
+Hyperledger Foundation: hands on
 
 ```bash
 FIAP - Hyperledger Foundation
