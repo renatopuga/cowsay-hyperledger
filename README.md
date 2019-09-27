@@ -252,4 +252,38 @@ github.com/hyperledger/fabric/orderer/common/server.Main()
 	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:91 +0x1ce
 main.main()
 	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:15 +0x20
+
+```
+
+Na aba com o docker bash...
+
+```bash
+# exportar o channel
+export CHANNEL_NAME=mychannel
+
+# testando a variavel de ambiente
+echo $CHANNEL_NAME
+mychannel
+
+# tentando rodar invoke
+# pegamos esse comando aqui:
+# https://hyperledger-fabric.readthedocs.io/en/release-1.4/build_network.html
+peer chaincode invoke -o orderer.example.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C $CHANNEL_NAME -n mycc --peerAddresses peer0.org1.example.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses peer0.org2.example.com:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"Args":["invoke","a","b","10"]}'
+
+2019-09-27 00:07:53.324 UTC [main] InitCmd -> WARN 001 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+2019-09-27 00:07:53.327 UTC [main] SetOrdererEnv -> WARN 002 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+Error: error getting endorser client for invoke: endorser client failed to connect to peer0.org2.example.com:9051: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp 172.19.0.5:9051: connect: connection refused"
+```
+
+
+```bash
+ ____________________________
+< connection refused #xatiado >
+ ----------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
 ```
