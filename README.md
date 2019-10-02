@@ -754,6 +754,11 @@ Query Result: 90
 
 ```
 
+Pronto, agora usaremos a feramenta `crytpogen` para gerar o material criptografico para nossas varias entendidades de redes. Esse certificados permitem a autenticacao de assinatura / verificacao e isso ocorre a medida que nossas entidades vao se comunicando e realizando transacoes.
+
+Gerando manualmente os artefatos:
+
+
 ```bash
 ./bin/cryptogen generate --config=./crypto-config.yaml
 org1.example.com
